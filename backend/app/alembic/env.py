@@ -28,13 +28,22 @@ target_metadata = SQLModel.metadata
 # ... etc.
 
 
+# def get_url():
+#     user = os.getenv("POSTGRES_USER", "postgres")
+#     password = os.getenv("POSTGRES_PASSWORD", "")
+#     server = os.getenv("POSTGRES_SERVER", "db")
+#     port = os.getenv("POSTGRES_PORT", "5432")
+#     db = os.getenv("POSTGRES_DB", "app")
+#     return f"postgresql+psycopg://{user}:{password}@{server}:{port}/{db}"
+
 def get_url():
-    user = os.getenv("POSTGRES_USER", "postgres")
-    password = os.getenv("POSTGRES_PASSWORD", "")
-    server = os.getenv("POSTGRES_SERVER", "db")
-    port = os.getenv("POSTGRES_PORT", "5432")
-    db = os.getenv("POSTGRES_DB", "app")
-    return f"postgresql+psycopg://{user}:{password}@{server}:{port}/{db}"
+    user = os.getenv("MYSQL_USER", "root")
+    password = os.getenv("MYSQL_PASSWORD", "mysql_zeYRxS")
+    server = os.getenv("MYSQL_SERVER", "192.168.8.26")
+    port = os.getenv("MYSQL_PORT", "3306")
+    db = os.getenv("MYSQL_DB", "fastapi")
+    # print(f"mysql+pymysql://{user}:{password}@{server}:{port}/{db}")
+    return f"mysql+pymysql://{user}:{password}@{server}:{port}/{db}"
 
 
 def run_migrations_offline():
